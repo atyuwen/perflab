@@ -1,0 +1,7 @@
+###What is Perflab
+
+A small tool to help investigate varies performance issues of C++ on different platforms. 
+
+###For what
+
+The result could reveal insights into some low-level performance aspects of C++, and provide a quantitative guide for optimization on different CPU architectures.

@@ -1,0 +1,28 @@
+# directories
+/Debug/
+/Release/
+/android/gen
+/android/bin
+/android/obj
+/android/libs
+
+# vc intermediate
+*.sln
+*.sdf
+*.opensdf
+*.suo
+*.log
+
+# obj files
+*.dll
+*.exe
+*.obj
+*.class
+*.o
+*.o.d
+*.so
+
+# packages
+*.apk
+*.jar
+

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{323f690f-26d9-4610-aa95-aa57664a0c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{b98f9d99-ca66-4a79-848a-c40b5bdd8c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\simd">
+      <UniqueIdentifier>{6fb44202-5b06-47d4-8f20-e1b58158f6cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="win_main.cpp" />
+    <ClCompile Include="src\memory_order.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\perf_case.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\common\timer.hpp">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\avx.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\detect.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\malloc.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\neon.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\simd.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\smmintrin_emu.h">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\sse.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simd\utils.hpp">
+      <Filter>src\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\perf_case.hpp">
+      <Filter>src\common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
