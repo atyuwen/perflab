@@ -36,6 +36,14 @@ std::string perf_case::run()
 	return std::string(buffer);
 }
 
+
+perf_lab::perf_lab()
+	: verbose_type_(msg_err)
+	, verbose_count_(10)
+{
+
+}
+
 perf_lab& perf_lab::instance()
 {
 	static perf_lab inst;
@@ -49,9 +57,33 @@ int perf_lab::add_perf_case(const std::string& suite, const std::string&name, st
 	return the_suite.size();
 }
 
-void perf_lab::error_msg(std::string&& err)
+int perf_lab::enable_perf_suite(const std::string& suite, bool enable)
 {
-	instance().errs_.emplace_back(std::move(err));
+	instance().disabled_[suite] = !enable;
+	return instance().disabled_.size();
+}
+
+int perf_lab::set_perf_suite_initializer( const std::string& suite, perf_func func )
+{
+	instance().initializers_[suite] = func;
+	return instance().initializers_.size();
+}
+
+int perf_lab::set_perf_suite_finisher( const std::string& suite, perf_func func )
+{
+	instance().finishers_[suite] = func;
+	return instance().finishers_.size();
+}
+
+void perf_lab::add_msg(perf_msg_t type, std::string&& msg)
+{
+	instance().msgs_[type].emplace_back(std::move(msg));
+}
+
+void perf_lab::set_verbose(perf_msg_t type, int count)
+{
+	instance().verbose_type_ = type;
+	instance().verbose_count_ = count;
 }
 
 std::string perf_lab::run()
@@ -60,22 +92,55 @@ std::string perf_lab::run()
 
 	for (auto& suite : instance().perf_suites_)
 	{
+		if (instance().disabled_[suite.first]) continue;
+
+		// initialize
+		auto init = instance().initializers_.find(suite.first);
+		if (init != instance().initializers_.end())
+		{
+			(init->second)();
+		}
+
 		oss << "[" << suite.first << "]" << std::endl;
 
+		// run cases
 		for (auto& cs : suite.second)
 		{
-			instance().errs_.clear();
-
 			oss << cs.run() << std::endl;
 
-			// print errors
-			for (auto& err : instance().errs_)
+			// output messages collected during this case
+			int count = 0;
+			for (int i = 0; i <= instance().verbose_type_; ++i)
 			{
-				oss << cs.name() << ": "<< err << std::endl;
+				for (auto& err : instance().msgs_[i])
+				{
+					if (count == instance().verbose_count_)
+					{
+						oss << cs.name() << ": ... ..." << std::endl;
+						break;
+					}
+					oss << cs.name() << ": "<< err << std::endl;
+					++count;
+				}
+				if (count == instance().verbose_count_) break;
+			}
+
+			// clear messages
+			for (int i = 0; i < msg_max; ++i)
+			{
+				instance().msgs_[i].clear();
 			}
 		}
 		oss << std::endl;
+
+		// finish
+		auto fini = instance().finishers_.find(suite.first);
+		if (fini != instance().finishers_.end())
+		{
+			(fini->second)();
+		}
 	}
 	return oss.str();
 }
+
 

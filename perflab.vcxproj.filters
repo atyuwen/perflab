@@ -19,6 +19,9 @@
     <ClCompile Include="src\common\perf_case.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
+    <ClCompile Include="src\arithmetic.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common\timer.hpp">

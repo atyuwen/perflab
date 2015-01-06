@@ -111,9 +111,13 @@ static void test()
 	PERF_CHECK(pushed == poped, "error: pushed = %d, poped = %d", pushed, poped);
 }
 
+
+REGISTER_PERF_SUITE(mem_order, false);
+
 REGISTER_PERF_CASE(mem_order, non_atomic     , (test<false, std::memory_order_relaxed, std::memory_order_relaxed>), M);
 REGISTER_PERF_CASE(mem_order, relaxed_relaxed, (test<true,  std::memory_order_relaxed, std::memory_order_relaxed>), M);
 REGISTER_PERF_CASE(mem_order, consume_release, (test<true,  std::memory_order_consume, std::memory_order_release>), M);
 REGISTER_PERF_CASE(mem_order, acquire_release, (test<true,  std::memory_order_acquire, std::memory_order_release>), M);
 REGISTER_PERF_CASE(mem_order, seq_cst_seq_cst, (test<true,  std::memory_order_seq_cst, std::memory_order_seq_cst>), M);
+
 
