@@ -13,14 +13,29 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win_main.cpp" />
-    <ClCompile Include="src\memory_order.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\common\perf_case.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
     <ClCompile Include="src\arithmetic.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\atomic.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\false_sharing.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simd.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common\fast_math.cpp">
+      <Filter>src\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +67,9 @@
       <Filter>src\simd</Filter>
     </ClInclude>
     <ClInclude Include="src\common\perf_case.hpp">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\fast_math.hpp">
       <Filter>src\common</Filter>
     </ClInclude>
   </ItemGroup>

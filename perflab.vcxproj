@@ -70,11 +70,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\arithmetic.cpp" />
+    <ClCompile Include="src\common\fast_math.cpp" />
     <ClCompile Include="src\common\perf_case.cpp" />
-    <ClCompile Include="src\memory_order.cpp" />
+    <ClCompile Include="src\false_sharing.cpp" />
+    <ClCompile Include="src\atomic.cpp" />
+    <ClCompile Include="src\math.cpp" />
+    <ClCompile Include="src\memory.cpp" />
+    <ClCompile Include="src\simd.cpp" />
     <ClCompile Include="win_main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\common\fast_math.hpp" />
     <ClInclude Include="src\common\perf_case.hpp" />
     <ClInclude Include="src\common\timer.hpp" />
     <ClInclude Include="src\simd\avx.hpp" />

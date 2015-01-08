@@ -63,9 +63,11 @@ private:
 
 private:
 	std::map<std::string, perf_suite>  perf_suites_;
+
 	std::map<std::string, bool>        disabled_;
 	std::map<std::string, perf_func>   initializers_;
 	std::map<std::string, perf_func>   finishers_;
+	
 	std::vector<std::string>           msgs_[msg_max];
 	perf_msg_t                         verbose_type_;
 	int                                verbose_count_;
@@ -106,7 +108,7 @@ namespace perf_xxx
 
 #define REGISTER_PERF_SUITE(suite, enable, /* optional initializer, optional finisher */...) \
 	int suite_##suite = perf_lab::enable_perf_suite(#suite, enable) \
-                      | perf_xxx::register_perf_suite_helper(#suite)(__VA_ARGS__);
+	                  | perf_xxx::register_perf_suite_helper(#suite)(__VA_ARGS__);
 
 #define REGISTER_PERF_CASE(suite, name, func, repeat) \
 	int case_##suite##_##name = perf_lab::add_perf_case(#suite, #name, func, repeat);

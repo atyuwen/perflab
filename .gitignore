@@ -1,10 +1,16 @@
 # directories
-/Debug/
-/Release/
+/debug/
+/release/
 /android/gen
 /android/bin
 /android/obj
 /android/libs
+
+# intel vtune files
+/*amplifier*
+
+# log file
+log.txt
 
 # vc intermediate
 *.sln
