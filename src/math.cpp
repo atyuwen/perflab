@@ -10,7 +10,7 @@ const int M = 10;
 
 static float *data = nullptr;
 
-void intialize()
+static void intialize()
 {
 	std::default_random_engine generator;
 	std::uniform_real_distribution<float> distribution(0.1f, 2.0f);
@@ -22,13 +22,13 @@ void intialize()
 	}
 }
 
-void finish()
+static void finish()
 {
 	delete [] data;
 }
 
 #define DEFINE_PERF_CASE_ONE_PARAM(func) \
-void test_##func() \
+static void test_##func() \
 { \
 	float ret = 0; \
 	for (int i = 0; i < N; ++i) \
@@ -40,7 +40,7 @@ void test_##func() \
 REGISTER_PERF_CASE(math, func, test_##func, M);
 
 #define DEFINE_PERF_CASE_TWO_PARAMS(func) \
-void test_##func() \
+static void test_##func() \
 { \
 	float ret = 0; \
 	for (int i = 0; i < N; ++i) \
@@ -51,8 +51,7 @@ void test_##func() \
 } \
 REGISTER_PERF_CASE(math, func, test_##func, M);
 
-
-REGISTER_PERF_SUITE(math, true, intialize, finish);
+REGISTER_PERF_SUITE(math, false, intialize, finish);
 
 DEFINE_PERF_CASE_ONE_PARAM(abs);
 DEFINE_PERF_CASE_ONE_PARAM(fast_abs);

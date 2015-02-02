@@ -4,7 +4,7 @@ const int N = 10000000;
 const int M = 10;
 
 template <int num, int step> 
-void add_int()
+static void add_int()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -24,7 +24,7 @@ void add_int()
 }
 
 template <int num, int step> 
-void add_float()
+static void add_float()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -44,7 +44,7 @@ void add_float()
 }
 
 template <int num, int step> 
-void mul_int()
+static void mul_int()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -64,7 +64,7 @@ void mul_int()
 }
 
 template <int num, int step> 
-void mul_float()
+static void mul_float()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -84,7 +84,7 @@ void mul_float()
 }
 
 template <int num, int step> 
-void div_int()
+static void div_int()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -105,7 +105,7 @@ void div_int()
 }
 
 template <int num, int step> 
-void div_float()
+static void div_float()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -126,7 +126,7 @@ void div_float()
 }
 
 template <int num, int step> 
-void mod_int()
+static void mod_int()
 {
 	static_assert(step <= 6, "step <= 6");
 
@@ -145,6 +145,8 @@ void mod_int()
 	int ret = t0 * t1 * t2 * t3 * t4 * t5;
 	PERF_MSG(msg_info, "ret = %d", ret);
 }
+
+REGISTER_PERF_SUITE(arithmetic, false);
 
 REGISTER_PERF_CASE(arithmetic, add_int_s1, (add_int<N, 1>), M);
 REGISTER_PERF_CASE(arithmetic, add_int_s2, (add_int<N, 2>), M);
@@ -194,6 +196,4 @@ REGISTER_PERF_CASE(arithmetic, mod_int_s3, (mod_int<N, 3>), M);
 REGISTER_PERF_CASE(arithmetic, mod_int_s4, (mod_int<N, 4>), M);
 REGISTER_PERF_CASE(arithmetic, mod_int_s5, (mod_int<N, 5>), M);
 REGISTER_PERF_CASE(arithmetic, mod_int_s6, (mod_int<N, 6>), M);
-
-REGISTER_PERF_SUITE(arithmetic, false);
 

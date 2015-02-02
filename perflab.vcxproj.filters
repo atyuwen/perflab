@@ -37,6 +37,9 @@
     <ClCompile Include="src\common\fast_math.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
+    <ClCompile Include="src\bit_tricks.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common\timer.hpp">
@@ -70,6 +73,9 @@
       <Filter>src\common</Filter>
     </ClInclude>
     <ClInclude Include="src\common\fast_math.hpp">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\cache.hpp">
       <Filter>src\common</Filter>
     </ClInclude>
   </ItemGroup>
