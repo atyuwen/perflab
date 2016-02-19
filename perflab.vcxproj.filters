@@ -40,6 +40,9 @@
     <ClCompile Include="src\bit_tricks.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\store_forwarding.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common\timer.hpp">

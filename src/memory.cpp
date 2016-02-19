@@ -20,6 +20,12 @@ static void clear_cache_sandybridgei5()
 	const int cache_size = 6 * 1024 * 1024;
 	const int cache_line = 64;
 	char* trash = (char*)alloc_large_page(cache_size);
+	if (trash == nullptr)
+	{
+		PERF_MSG(msg_err, "alloc large page failed, size = %d", cache_size);
+		return;
+	}
+
 	int ret = 0;
 	for (int i = 0; i < cache_size; i += cache_line)
 	{
@@ -65,7 +71,7 @@ static void mem_stream()
 
 }
 
-REGISTER_PERF_SUITE(memory, true, initialize, finish);
+REGISTER_PERF_SUITE(memory, false, initialize, finish);
 
 REGISTER_PERF_CASE(memory, read1, mem_read, 1);
 REGISTER_PERF_CASE(memory, read2, mem_read, 1);

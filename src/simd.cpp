@@ -23,6 +23,8 @@ struct tester : public simd_ext
 	}
 };
 
+REGISTER_PERF_SUITE(simd, false);
+
 REGISTER_PERF_CASE(simd, add_scalar, tester::add_scalar, M);
 REGISTER_PERF_CASE(simd, add_simd,   tester::add_simd,   M);
 

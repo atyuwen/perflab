@@ -78,6 +78,7 @@
     <ClCompile Include="src\math.cpp" />
     <ClCompile Include="src\memory.cpp" />
     <ClCompile Include="src\simd.cpp" />
+    <ClCompile Include="src\store_forwarding.cpp" />
     <ClCompile Include="win_main.cpp" />
   </ItemGroup>
   <ItemGroup>
