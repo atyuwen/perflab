@@ -23,8 +23,21 @@ struct int4m
 	}
 };
 
+struct char4u
+{
+	union
+	{
+		struct
+		{
+			char x, y, z, w;
+		};
+		int d;
+	};
+};
+
 int4 out[16];
 int4m outm[16];
+char4u outu[16];
 
 static void implicit()
 {
@@ -62,7 +75,33 @@ static void piecewise()
 	}
 }
 
-REGISTER_PERF_CASE(store_forwarding, implicit,   implicit,    M);
-REGISTER_PERF_CASE(store_forwarding, custom,     custom,      M);
-REGISTER_PERF_CASE(store_forwarding, piecewise,  piecewise,   M);
+static void test_union()
+{
+	char4u a;
+	a.d = 0;
+	for (int i = 0;i < N; ++i)
+	{
+		a.x = i;
+		int idx  = i & 0xF;
+		outu[idx].x = a.x;
+		outu[idx].y = a.y;
+	}
+}
 
+static void test_union2()
+{
+	char4u a;
+	a.d = 0;
+	for (int i = 0;i < N; ++i)
+	{
+		a.x = i;
+		int idx  = i & 0xF;
+		outu[idx].d = a.d;
+	}
+}
+
+REGISTER_PERF_CASE(store_forwarding, implicit,    implicit,    M);
+REGISTER_PERF_CASE(store_forwarding, custom,      custom,      M);
+REGISTER_PERF_CASE(store_forwarding, piecewise,   piecewise,   M);
+REGISTER_PERF_CASE(store_forwarding, test_union,  test_union,  M);
+REGISTER_PERF_CASE(store_forwarding, test_union2, test_union2, M);
