@@ -43,6 +43,12 @@
     <ClCompile Include="src\store_forwarding.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\partial_register.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\unaligned_access.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common\timer.hpp">
@@ -79,6 +85,9 @@
       <Filter>src\common</Filter>
     </ClInclude>
     <ClInclude Include="src\common\cache.hpp">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\common.hpp">
       <Filter>src\common</Filter>
     </ClInclude>
   </ItemGroup>

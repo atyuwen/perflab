@@ -77,12 +77,15 @@
     <ClCompile Include="src\atomic.cpp" />
     <ClCompile Include="src\math.cpp" />
     <ClCompile Include="src\memory.cpp" />
+    <ClCompile Include="src\partial_register.cpp" />
     <ClCompile Include="src\simd.cpp" />
     <ClCompile Include="src\store_forwarding.cpp" />
+    <ClCompile Include="src\unaligned_access.cpp" />
     <ClCompile Include="win_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common\cache.hpp" />
+    <ClInclude Include="src\common\common.hpp" />
     <ClInclude Include="src\common\fast_math.hpp" />
     <ClInclude Include="src\common\perf_case.hpp" />
     <ClInclude Include="src\common\timer.hpp" />

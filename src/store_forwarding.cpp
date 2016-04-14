@@ -100,6 +100,8 @@ static void test_union2()
 	}
 }
 
+REGISTER_PERF_SUITE(store_forwarding, false);
+
 REGISTER_PERF_CASE(store_forwarding, implicit,    implicit,    M);
 REGISTER_PERF_CASE(store_forwarding, custom,      custom,      M);
 REGISTER_PERF_CASE(store_forwarding, piecewise,   piecewise,   M);
