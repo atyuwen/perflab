@@ -49,6 +49,9 @@
     <ClCompile Include="src\unaligned_access.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\random.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\common\timer.hpp">

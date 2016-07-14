@@ -1,6 +1,7 @@
 # directories
 /debug/
 /release/
+/x64/
 /android/gen
 /android/bin
 /android/obj

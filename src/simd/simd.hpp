@@ -25,7 +25,7 @@ namespace simd
 
 #define SIMD_COMPOSITE(...) {__VA_ARGS__}
 
-#if defined(_M_IX86)
+#if defined(_M_IX86) || defined(_M_X64)
 #include "sse.hpp"
 #include "avx.hpp"
 

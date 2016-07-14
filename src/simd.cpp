@@ -1,7 +1,7 @@
 #include "common/perf_case.hpp"
 #include "simd/simd.hpp"
 
-#if defined(_M_IX86)
+#if defined(_M_IX86) || defined(_M_X64)
 typedef simd::simd_extension<simd::sse_4_1> simd_ext;
 #else
 typedef simd::simd_extension<simd::neon> simd_ext;

@@ -9,6 +9,7 @@
 
 int main()
 {
+	//perf_lab::set_verbose(msg_info, 100);
 	std::string res = perf_lab::run();
 	std::cout << res << std::endl;
 

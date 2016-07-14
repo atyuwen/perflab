@@ -31,13 +31,13 @@ static void shared()
 
 static void unshared()
 {
-	std::thread a(func<0,  64, 1>);
-	std::thread b(func<64, 28, 1>);
+	std::thread a(func<0,   64, 1>);
+	std::thread b(func<64, 128, 1>);
 	a.join();
 	b.join();
 }
 
-REGISTER_PERF_SUITE(false_sharing, true);
+REGISTER_PERF_SUITE(false_sharing, false);
 
 REGISTER_PERF_CASE(false_sharing, shared,   shared,   M);
 REGISTER_PERF_CASE(false_sharing, unshared, unshared, M);

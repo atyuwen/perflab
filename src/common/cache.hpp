@@ -22,7 +22,9 @@ static inline void invalide_cache(invalidate_mode mode)
 	}
 	else
 	{
+#if defined(_M_IX86)
 		__asm invd;
+#endif
 	}
 }
 

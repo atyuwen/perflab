@@ -34,7 +34,7 @@ static void unaligned()
 	}
 }
 
-REGISTER_PERF_SUITE(unaligned_access, true);
+REGISTER_PERF_SUITE(unaligned_access, false);
 
 REGISTER_PERF_CASE(unaligned_access, aligned,   aligned,   M);
 REGISTER_PERF_CASE(unaligned_access, unaligned, unaligned, M);
